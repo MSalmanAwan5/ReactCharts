@@ -189,6 +189,12 @@ const getLineChartDataWithLimits = () => {
   });
 };
 
+// week start from 0 to 6
+// days start form 1 to 7
+const getWeekAndDayValue = (week, day) => {
+  return week + day / 7;
+};
+
 console.log(labels);
 
 export const data = {
@@ -213,15 +219,15 @@ export const data = {
       backgroundColor: "rgb(75, 192, 192)",
       data: [
         {
-          x: 0.6, // 1st day of 2nd week
-          y: 2.2, // 2nd day of 3rd week
+          x: getWeekAndDayValue(0, 2), // 2nd day of 1st week
+          y: 2.2,
         },
         {
-          x: 3, // 7th day of 3rd week
+          x: getWeekAndDayValue(2, 5), // 5th day of 3rd week
           y: 3.6,
         },
         {
-          x: 4,
+          x: getWeekAndDayValue(3, 7), // 7th day of 4th week
           y: 4.5,
         },
       ],
